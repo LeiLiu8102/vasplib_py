@@ -1,0 +1,16 @@
+{
+  "data_type":  "dos",
+  "_comment1":  "required: 'dos' or 'band structure'",
+  "fname":      "test/analysis/vasprun.xml",
+  "_comment2":  "required: valid path to a 'vasprun.xml' file",
+  "total":      true,
+  "_comment3":  "true or false, default to true",
+  "elements":   ["Co", "S", "S"],
+  "_comment4":  "element symbols for partial DOS, list(str), deault to []",
+  "orbitals":   [["px", "py"], ["px"], "all"],
+  "_comment5":  "electronic orbitals for partial DOS, list(str), its length has to be identical to 'elements'",
+  "out":        "test/analysis/dos.dat",
+  "_comment6":  "optional, path to output file",
+  "plot":       false,
+  "_comment7":  "false or true, default to false"
+}

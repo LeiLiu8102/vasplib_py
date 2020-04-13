@@ -1,0 +1,68 @@
+{
+  "data_type":  "band structure",
+  "_comment1":  "required: 'dos' or 'band structure'",
+  "fname":      "~/Dropbox (ASU)/2DHEA/Band structure/Se_Te_Mo_W/Static/band/vasprun.xml",
+  "_comment2":  "required: valid path to a 'vasprun.xml' file",
+  "total":      true,
+  "_comment3":  "true or false, default to true",
+  "elements":   [],
+  "_comment4":  "element symbols for partial band structure, list(str), deault to []",
+  "orbitals":   [],
+  "_comment5":  "electronic orbitals for partial band structure, list(str), its length has to be identical to 'elements'",
+  "out":        "",
+  "_comment6":  "optional, path to output file",
+  "plot":       true,
+  "plot_parms":
+  {
+        "font family": "Times New Roman",
+        "Set":
+        {
+            "line_width": 0.5,
+            "comment": "optional, default to 1.5",
+            "symbol_type":  [],
+            "_comment1": "optional, specifying the symbol types",
+            "symbol_size": 15,
+            "_comment3": "optional, specifying the symbol size",
+            "legend":    [],
+            "_comment2": "optional, specifying the legends for the symbols"
+        },
+        "_comment3": "required",
+
+        "Axes":
+        {
+            "linewidth": 0.8,
+            "_comment_lw": "optional, default to 1",
+            "Xaxis":
+            {
+                "lim": [],
+                "label": "Energy (eV)",
+                "font size": 28,
+                "_comment_label": "optioanl, default to 'Energy (eV), 28",
+                "ticks": {"major spacing": 5, "minor spacing": 1},
+                "major ticks parameters": {"length": 6, "width": 1, "fontsize": 24},
+                "minor ticks parameters": {"length": 3, "width": 0.5}
+            },
+            "_comment_Xaxis": "optional",
+
+            "Yaxis":
+            {
+                "lim": [-4, 6],
+                "label": "Energy (eV)",
+                "font size": 28,
+                "ticks": {"major spacing": 2, "minor ticks": 0.4},
+                "major ticks parameters": {"length": 6, "width": 0.5, "fontsize": 24},
+                "minor ticks parameters": {"length": 3, "width": 0.5}
+            },
+            "_comment_Yaxis": "optional"
+        },
+        "_comment_Axes": "optional",
+
+        "Print":
+        {
+            "figaspect": 1,
+            "fname":     "band.pdf",
+            "format":    "pdf",
+            "dpi":       800
+        }
+  }
+}

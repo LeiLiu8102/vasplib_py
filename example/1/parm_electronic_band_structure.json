@@ -1,0 +1,16 @@
+{
+  "data_type":  "band structure",
+  "_comment1":  "required: 'dos' or 'band structure'",
+  "fname":      "vasprun.xml",
+  "_comment2":  "required: valid path to a 'vasprun.xml' file",
+  "total":      true,
+  "_comment3":  "true or false, default to true",
+  "elements":   ["Al", "Sc", "N"],
+  "_comment4":  "element symbols for partial band structure, list(str), deault to []",
+  "orbitals":   ["all", "all", "all"],
+  "_comment5":  "electronic orbitals for partial band structure, list(str), its length has to be identical to 'elements'",
+  "out":        ".",
+  "_comment6":  "optional, path to output file",
+  "plot":       false,
+  "_comment7":  "false or true, default to false"
+}
