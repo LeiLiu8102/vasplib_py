@@ -168,19 +168,18 @@ class Poscar(Build):
 
         with open(filename, 'w') as fp:
             fp.write(self.comment + '\n')
-            fp.write(str(self.factor) + '\n')
+            fp.write('{:.14f}\n'.format(self.factor))
 
             # Write the lattice vectors and their flags
             if self.lattice_flag:
                 for i in range(3):
-                    lattice_vector_str = [str(num) for num in self.lattice[i]]
                     bool_vector_str = [bool_char(flag) for flag in self.lattice_flag[i]]
-                    fp.write('\t'.join(lattice_vector_str))
-                    fp.write('\t' + '\t'.join(bool_vector_str))
+                    fp.write('{:.14f}    {:.14f}    {:.14f}'.format(*self.lattice[i]))
+                    fp.write('    ' + '  '.join(bool_vector_str))
                     fp.write('\n')
             else:
                 for i in range(3):
-                    fp.write('     '.join([str(num) for num in self.lattice[i]]))
+                    fp.write('{:.14f}    {:.14f}    {:.14f}'.format(*self.lattice[i]))
                     fp.write('\n')
 
             # Write the atomic species
@@ -197,9 +196,9 @@ class Poscar(Build):
             # Write the atomic positions
             for atom in self.atoms:
                 for i in range(atom['num']):
-                    fp.write('    '.join([str(num) for num in atom['coords'][i]]))
+                    fp.write('{:.14f}    {:.14f}    {:.14f}'.format(*atom['coords'][i]))
                     if self.selective:
-                        fp.write(' '.join(atom['selective'][i]))
+                        fp.write('    ' + ' '.join([bool_char(x) for x in atom['selective'][i]]))
                     fp.write('\n')
 ###########################################################################################
     def update_elements(self, elements):

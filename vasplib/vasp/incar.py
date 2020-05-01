@@ -7,11 +7,12 @@ import vasplib
 Class for reading/manuoulating/writing INCAR file and parameters.
 """
 
+## Stop validating the tags in INCAR files
 # Load tags name from incarTags.json
-tag_file = os.path.join(os.path.dirname(vasplib.__file__),'vasp/incarTags.json')
-with open(tag_file, 'r') as fp:
-    tag_data = json.load(fp)
-    valid_tags = [tag["tag"] for tag in tag_data]
+# tag_file = os.path.join(os.path.dirname(vasplib.__file__),'vasp/incarTags.json')
+# with open(tag_file, 'r') as fp:
+#     tag_data = json.load(fp)
+#     valid_tags = [tag["tag"] for tag in tag_data]
 
 class Incar(object):
     """
@@ -80,8 +81,7 @@ class Incar(object):
         params (dict): A set of input parameters as a dictionary.
         """
         for tag, value in params.items():
-            if tag in valid_tags:
-                self.pairs[tag] = value
+            self.pairs[tag] = value
 
     def remove(self, tag):
         """
