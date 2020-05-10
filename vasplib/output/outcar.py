@@ -366,3 +366,30 @@ class Outcar(object):
                 if n in range(last_occurrence + 2, last_occurrence + 5):
                     tensor.append(np.fromstring(line, dtype = float, sep = ' '))
         return np.array(tensor)
+
+    def imaginary_dielectric_function(self):
+        """
+        Get the frequency-dependent imaginary dielectric function.
+        Returns:
+            epsilon: np.ndarrary with seven columns, the first column is energy (eV), 
+                    the second to the seventh represent the xx, yy, zz, xy, yz, and zx components.
+        """
+        epsilon = []
+        with open(self.filename, 'r') as fp:
+            while not fp.readline().startswith("  frequency dependent IMAGINARY DIELECTRIC FUNCTION"):
+                continue
+            _ = fp.readline()
+            _ = fp.readline()
+
+            line = fp.readline()
+            while line.strip():
+                row = np.fromstring(line, dtype = float, sep = ' ')
+                epsilon.append(row)
+                line = fp.readline()
+
+
+        epsilon = np.array(epsilon)
+        return epsilon
+
+
+
